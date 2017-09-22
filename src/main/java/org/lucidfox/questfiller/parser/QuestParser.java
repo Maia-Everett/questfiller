@@ -292,11 +292,11 @@ final class QuestParser implements IParser<Quest> {
 			});
 			
 			getRegexGroup(infoboxLine, "Race: ([0-9]+)", 1).ifPresent(raceId -> {
-				quest.setRace(Race.getById(Integer.parseInt(raceId)));
+				quest.setRace(Race.Companion.getById(Integer.parseInt(raceId)));
 			});
 			
 			getRegexGroup(infoboxLine, "Class: ([0-9]+)", 1).ifPresent(classId -> {
-				quest.setCharacterClass(CharacterClass.getById(Integer.parseInt(classId)));
+				quest.setCharacterClass(CharacterClass.Companion.getById(Integer.parseInt(classId)));
 			});
 			
 			getRegexGroup(infoboxLine, "Start: (.+)", 1).ifPresent(startEntity -> {

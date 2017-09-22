@@ -233,7 +233,7 @@ final class MissionParser implements IParser<Mission> {
 			});
 			
 			getRegexGroup(infoboxLine, "Class: ([0-9]+)", 1).ifPresent(classId -> {
-				mission.setCharacterClass(CharacterClass.getById(Integer.parseInt(classId)));
+				mission.setCharacterClass(CharacterClass.Companion.getById(Integer.parseInt(classId)));
 			});
 			
 			getRegexGroup(infoboxLine, "Added in patch ([0-9]+.[0-9]+.[0-9]+)", 1).ifPresent(patch -> {

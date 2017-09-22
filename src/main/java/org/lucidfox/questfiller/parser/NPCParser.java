@@ -59,7 +59,7 @@ final class NPCParser implements IParser<NPC> {
 		final int[] categoryIds = ParseUtils.getCategoryIds(html);
 		// third number in list is the creature type id
 		final int creatureTypeId = categoryIds[2];
-		npc.setCreatureType(CreatureType.getById(creatureTypeId));
+		npc.setCreatureType(CreatureType.Companion.getById(creatureTypeId));
 	}
 	
 	private void parseLocation(final NPC npc, final Element mainContainer) {
@@ -283,11 +283,11 @@ final class NPCParser implements IParser<NPC> {
 
 			getRegexGroup(infoboxLine, "React: (.+)", 1).ifPresent(reaction -> {
 				getRegexGroup(reaction, "<q([^>]*)>A", 1).ifPresent(colorId -> {
-					npc.setAllianceReaction(Reaction.getByColor(colorId));
+					npc.setAllianceReaction(Reaction.Companion.getByColor(colorId));
 				});
 
 				getRegexGroup(reaction, "<q([^>]*)>H", 1).ifPresent(colorId -> {
-					npc.setHordeReaction(Reaction.getByColor(colorId));
+					npc.setHordeReaction(Reaction.Companion.getByColor(colorId));
 				});
 			});
 			
